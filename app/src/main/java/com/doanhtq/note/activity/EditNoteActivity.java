@@ -1,10 +1,14 @@
-package com.doanhtq.note;
+package com.doanhtq.note.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+
+import com.doanhtq.note.Note;
+import com.doanhtq.note.NoteOpenHelper;
+import com.doanhtq.note.R;
 
 public class EditNoteActivity extends AppCompatActivity {
     NoteOpenHelper mNoteOpenHelper;

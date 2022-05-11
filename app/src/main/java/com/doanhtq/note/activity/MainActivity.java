@@ -1,4 +1,4 @@
-package com.doanhtq.note;
+package com.doanhtq.note.activity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +8,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.doanhtq.note.Note;
+import com.doanhtq.note.NoteAdapter;
+import com.doanhtq.note.NoteOpenHelper;
+import com.doanhtq.note.R;
 
 import java.util.LinkedList;
 
@@ -27,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         mNoteList.addAll(mNoteOpenHelper.getAllNotes());
 
 //        for (int i = 1; i < 20; i++) {
-////            mNoteList.addLast(new Note(i,"Title" + i, "Description" + i));
+//            mNoteList.addLast(new Note(i,"Title" + i, "Description" + i));
 //            mNoteList.addLast(new Note(i, "Title " + i, "Description " + i));
 //        }
 
