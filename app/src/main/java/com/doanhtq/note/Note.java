@@ -8,6 +8,10 @@ public class Note {
     }
 
     int noteID;
+
+    public Note() {
+    }
+
     String noteTitle;
     String noteDescription;
 
