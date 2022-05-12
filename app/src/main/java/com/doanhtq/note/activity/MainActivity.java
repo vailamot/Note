@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             int noteID = cursor.getInt(0);
             String noteTitle = cursor.getString(1);
             String noteDescription = cursor.getString(2);
-            Log.d("DoanhTq", "onCreate: " + noteID + noteTitle + noteDescription);
+            Log.d("DoanhTq", "" + noteID + noteTitle + noteDescription);
             cursor.moveToNext();
         }cursor.close();
 
