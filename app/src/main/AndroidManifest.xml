@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.doanhtq.note">
+    <permission android:name="com.doanhtq.note.READ_DATABASE"
+        android:label="Read Database"
+        android:protectionLevel="normal"/>
+    <permission android:name="com.doanhtq.note.WRITE_DATABASE"
+        android:label="Write Database"
+        android:protectionLevel="normal"/>
+
 
     <application
         android:allowBackup="true"
@@ -9,6 +16,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Note">
+        <provider
+            android:name=".NoteProvider"
+            android:authorities="com.doanhtq.note.NoteProvider"
+            android:enabled="true"
+            android:exported="true"
+            android:multiprocess="true"
+            android:readPermission="com.doanhtq.note.READ_DATABASE"
+            android:writePermission="com.doanhtq.note.WRITE_DATABASE"
+            />
+
         <activity
             android:name=".activity.EditNoteActivity"
             android:exported="false" />

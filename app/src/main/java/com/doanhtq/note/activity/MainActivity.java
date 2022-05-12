@@ -6,11 +6,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.doanhtq.note.Note;
 import com.doanhtq.note.NoteAdapter;
+import com.doanhtq.note.NoteContacts;
 import com.doanhtq.note.NoteOpenHelper;
 import com.doanhtq.note.R;
 
@@ -40,6 +43,19 @@ public class MainActivity extends AppCompatActivity {
         mNoteAdapter = new NoteAdapter(this, mNoteList);
         mRecyclerView.setAdapter(mNoteAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        Cursor cursor = getContentResolver().query(NoteContacts.CONTENT_URI, null,
+                null,null,null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            int noteID = cursor.getInt(0);
+            String noteTitle = cursor.getString(1);
+            String noteDescription = cursor.getString(2);
+            Log.d("DoanhTq", "onCreate: " + noteID + noteTitle + noteDescription);
+            cursor.moveToNext();
+        }cursor.close();
+
+
     }
 
     public void startEditNoteActivity(View view) {
