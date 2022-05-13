@@ -16,7 +16,7 @@ public class NoteContacts {
         static final String MULTIPLE_NOTES_MIME_TYPE =
                 "vnd.android.cursor.dir/vnd.com.doanhtq.note.notes";
 
-        public static final String AUTHORITY = "com.doanhtq.note.noteprovider";
+        public static final String AUTHORITY = "com.doanhtq.note.NoteProvider";
         public static final String CONTENT_PATH =  "words";
         public static final String URL = "content://" + AUTHORITY + "/" + CONTENT_PATH;
         public static final Uri CONTENT_URI = Uri.parse(URL);

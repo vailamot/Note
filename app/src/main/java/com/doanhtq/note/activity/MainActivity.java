@@ -12,7 +12,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.doanhtq.note.Note;
-import com.doanhtq.note.adapter.NoteAdapter;
+import com.doanhtq.note.NoteAdapter;
 import com.doanhtq.note.NoteContacts;
 import com.doanhtq.note.NoteOpenHelper;
 import com.doanhtq.note.R;
@@ -51,10 +51,11 @@ public class MainActivity extends AppCompatActivity {
             int noteID = cursor.getInt(0);
             String noteTitle = cursor.getString(1);
             String noteDescription = cursor.getString(2);
-            Log.d("DoanhTq",  noteID +" "+ noteTitle + noteDescription);
+            Log.d("DoanhTq", "onCreate: " + noteID + noteTitle + noteDescription);
             cursor.moveToNext();
-        }
-        cursor.close();
+        }cursor.close();
+
+
     }
 
     public void startEditNoteActivity(View view) {
