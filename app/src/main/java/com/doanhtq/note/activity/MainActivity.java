@@ -12,10 +12,11 @@ import android.util.Log;
 import android.view.View;
 
 import com.doanhtq.note.Note;
-import com.doanhtq.note.NoteAdapter;
+import com.doanhtq.note.adapter.NoteAdapter;
 import com.doanhtq.note.NoteContacts;
 import com.doanhtq.note.NoteOpenHelper;
 import com.doanhtq.note.R;
+import com.doanhtq.note.adapter.NoteAdapter;
 
 import java.util.LinkedList;
 
