@@ -1,4 +1,4 @@
-package com.doanhtq.note;
+package com.doanhtq.note.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+
+import com.doanhtq.note.Note;
+import com.doanhtq.note.R;
 
 import java.util.LinkedList;
 
