@@ -10,6 +10,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
+import android.text.TextUtils;
 
 public class NoteProvider extends ContentProvider {
     static final int NOTES = 1;
@@ -31,7 +32,26 @@ public class NoteProvider extends ContentProvider {
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
         // Implement this to handle requests to delete one or more rows.
-        throw new UnsupportedOperationException("Not yet implemented");
+        int count = 0;
+        switch (sUriMatcher.match(uri)){
+            case NOTES:
+                // Truong hop xoa toan bo notes
+                count = mSqLiteDatabase.delete(NoteContacts.NOTE_TABLE_NAME, selection, selectionArgs);
+                break;
+
+            case NOTE_ID:
+                // Truong hop xoa 1 note
+                String id = uri.getPathSegments().get(1);
+                count = mSqLiteDatabase.delete(NoteContacts.NOTE_TABLE_NAME, NoteContacts.COLUMN_ID +  " = " + id +
+                        (!TextUtils.isEmpty(selection) ? " AND (" + selection + ')' : ""), selectionArgs);
+                break;
+
+            default:
+                throw new IllegalArgumentException("Unknown URI " + uri);
+        }
+        // Notify cho cac thanh phan lang nghe
+        getContext().getContentResolver().notifyChange(uri, null);
+        return count;
     }
 
     @Override

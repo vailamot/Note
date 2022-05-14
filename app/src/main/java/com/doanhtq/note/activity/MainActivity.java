@@ -47,15 +47,32 @@ public class MainActivity extends AppCompatActivity {
 
         Cursor cursor = getContentResolver().query(NoteContacts.CONTENT_URI, null,
                 null,null,null);
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()){
-            int noteID = cursor.getInt(0);
-            String noteTitle = cursor.getString(1);
-            String noteDescription = cursor.getString(2);
-            Log.d("DoanhTq", "onCreate: " + noteID + noteTitle + noteDescription);
-            cursor.moveToNext();
-        }cursor.close();
+        if((cursor!=null) && (cursor.moveToFirst())){
+            while (!cursor.isAfterLast()){
+                int noteID = cursor.getInt(0);
+                String noteTitle = cursor.getString(1);
+                String noteDescription = cursor.getString(2);
+                Log.d("DoanhTq", " " + noteID + noteTitle + noteDescription);
+                cursor.moveToNext();
+            }
+            cursor.close();
+        }else {
+            Log.d("DoanhTq", "No cursor");
+        }
 
+
+//        if(cursor != null){
+//            if(cursor.moveToFirst()!=null)
+//            do{
+//                int noteID = cursor.getInt(0);
+//                String noteTitle = cursor.getString(1);
+//                String noteDescription = cursor.getString(2);
+//                Log.d("DoanhTq", noteID + " " + noteTitle + noteDescription);
+//            }while (cursor.moveToNext());
+//            cursor.close();
+//        } else {
+//            Log.d("DoanhTq", "No cursor");
+//        }
 
     }
 
